@@ -14,10 +14,8 @@
 
 static size_t	ft_c_a(char const *s, char c)
 {
-	size_t	i;
 	size_t	count;
 
-	i = 0;
 	count = 0;
 	while (*s)
 	{
@@ -30,12 +28,12 @@ static size_t	ft_c_a(char const *s, char c)
 
 static void		*ft_free(char **a, size_t i)
 {
-	while (i > -1)
+	while (i > 0)
 	{
 		free(a[i]);
 		i--;
 	}
-//	free(a[i]);
+	free(a[i]);
 	free(a);
 	return (NULL);
 }

@@ -17,10 +17,11 @@ FLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
 
-$(NAME):
-	gcc -c $(FLAGS)	$(SRC)
+$(NAME): $(OBJ)
 	ar rc $(NAME) $(OBJ)
-	
+
+$(OBJ): %.o:%.c
+	gcc -c $(FLAGS) $< -o $@
 
 clean:
 	/bin/rm -f $(OBJ)
