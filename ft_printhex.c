@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_printhex.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmorrige <dmorrige@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dmorrige <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/11 16:36:17 by dmorrige          #+#    #+#             */
-/*   Updated: 2019/04/11 18:27:51 by dmorrige         ###   ########.fr       */
+/*   Created: 2020/06/19 23:38:39 by dmorrige          #+#    #+#             */
+/*   Updated: 2020/06/19 23:39:26 by dmorrige         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+void	ft_printhex(int n)
 {
-	const unsigned char	*str;
-	unsigned char		i;
+	int c;
 
-	str = (unsigned char *)s;
-	i = 0;
-	while (i < n)
-	{
-		if (str[i] == (unsigned char)c)
-			return ((void *)(str + i));
-		i++;
-	}
-	return (NULL);
+	if (n >= 16)
+		ft_printhex(n / 16);
+	c = n % 16 + (n % 16 < 10 ? '0' : 'a' - 10);
+	ft_putchar(c);
 }

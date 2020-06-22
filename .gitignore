@@ -1,3 +1,6 @@
 *.o
 *.a
+*.d
 *.so
+*.out
+42_header/
